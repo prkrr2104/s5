@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+        }
+
+        * {
+            font: inherit;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background-color: hsl(0, 0%, 100%);
+            font-family: system-ui, sans-serif;
+            color: hsl(230, 7%, 23%);
+            font-size: 1.125rem;
+            line-height: 1.4;
+            padding-top: 12%;
+            text-align: center;
+            align-items: center;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            line-height: 1.2;
+            color: hsl(230, 13%, 9%);
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+
+        }
+
+        h2 {
+            font-size: 2.125rem;
+
+        }
+
+        h3 {
+            font-size: 1.75rem;
+
+        }
+
+        h4 {
+            font-size: 1.375rem;
+
+        }
+
+        ol,
+        ul,
+        menu {
+            list-style: none;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            background-color: transparent;
+            border-radius: 0;
+            color: inherit;
+            line-height: inherit;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        textarea {
+            resize: vertical;
+            overflow: auto;
+            vertical-align: top;
+        }
+
+        a {
+            color: hsl(250, 84%, 54%);
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        img,
+        video,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        .cd-btn {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375em;
+            font-size: 1em;
+            text-decoration: none;
+            line-height: 1.2;
+            cursor: pointer;
+            transition: 0.2s;
+            will-change: transform;
+        }
+
+        .cd-btn:focus-visible {
+            outline: none;
+        }
+
+        .cd-btn:active {
+            transform: translateY(2px);
+        }
+
+        .cd-btn--primary {
+            background: hsl(250, 84%, 54%);
+            box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.15),
+                0 1px 3px hsla(250, 84%, 38%, 0.25),
+                0 2px 6px hsla(250, 84%, 38%, 0.1),
+                0 6px 10px -2px hsla(250, 84%, 38%, 0.25);
+            color: hsl(0, 0%, 100%);
+        }
+
+        .cd-btn--primary:hover {
+            background: hsl(250, 84%, 60%);
+            box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.15),
+                0 1px 2px hsla(250, 84%, 38%, 0.25),
+                0 1px 4px hsla(250, 84%, 38%, 0.1),
+                0 3px 6px -2px hsla(250, 84%, 38%, 0.25);
+        }
+
+        .cd-btn--primary:focus-visible {
+            box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.15),
+                0 1px 2px hsla(250, 84%, 38%, 0.25),
+                0 1px 4px hsla(250, 84%, 38%, 0.1),
+                0 3px 6px -2px hsla(250, 84%, 38%, 0.25),
+                0 0 0 2px hsl(0, 0%, 100%),
+                0 0 0 4px hsl(250, 84%, 54%);
+        }
+
+        .cd-btn--subtle {
+            background: hsl(0, 0%, 100%);
+            color: hsl(230, 13%, 9%);
+            box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.1),
+                0 0 0 1px hsla(230, 13%, 9%, 0.02),
+                0 0.3px 0.4px hsla(230, 13%, 9%, 0.025),
+                0 1px 3px -1px hsla(230, 13%, 9%, 0.2),
+                0 3.5px 6px hsla(230, 13%, 9%, 0.12);
+        }
+
+        .cd-btn--subtle:hover {
+            background: hsl(0, 0%, 100%);
+            box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.1),
+                0 0 0 1px hsla(230, 13%, 9%, 0.02),
+                0 0.1px 0.3px hsla(230, 13%, 9%, 0.06),
+                0 1px 2px hsla(230, 13%, 9%, 0.12),
+                0 1px 3px -1px hsla(230, 13%, 9%, 0.2);
+        }
+
+        .cd-btn--subtle:focus-visible {
+            box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.1),
+                0 0 0 1px hsla(230, 13%, 9%, 0.02),
+                0 0.3px 0.4px hsla(230, 13%, 9%, 0.025),
+                0 1px 3px -1px hsla(230, 13%, 9%, 0.2),
+                0 3.5px 6px hsla(230, 13%, 9%, 0.12),
+                0 0 0 2px hsl(0, 0%, 100%),
+                0 0 0 4px hsl(230, 7%, 23%);
+        }
+
+        .cd-btn--accent {
+            background: hsl(342, 89%, 48%);
+            color: hsl(0, 0%, 100%);
+            box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.15),
+                0 1px 3px hsla(342, 89%, 38%, 0.25),
+                0 2px 6px hsla(342, 89%, 38%, 0.1),
+                0 6px 10px -2px hsla(342, 89%, 38%, 0.25);
+        }
+
+        .cd-btn--accent:hover {
+            background: hsl(342, 89%, 56%);
+            box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.15),
+                0 1px 2px hsla(342, 89%, 38%, 0.25),
+                0 1px 4px hsla(342, 89%, 38%, 0.1),
+                0 3px 6px -2px hsla(342, 89%, 38%, 0.1);
+        }
+
+        .cd-btn--accent:focus-visible {
+            box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.15),
+                0 1px 2px hsla(342, 89%, 38%, 0.25),
+                0 1px 4px hsla(342, 89%, 38%, 0.1),
+                0 3px 6px -2px hsla(342, 89%, 38%, 0.1),
+                0 0 0 2px hsl(0, 0%, 100%),
+                0 0 0 4px hsl(342, 89%, 48%);
+        }
+
+        .cd-btn--disabled,
+        .cd-btn[disabled],
+        .cd-btn[readonly] {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="get" name="google-sheet" class="frm">
+
+        <input type="text" id="fname" name="Name" placeholder="your name " class="cd-btn cd-btn--subtle"><br><br>
+
+        <input type="email" id="lname" name="Email" placeholder="your email " class="cd-btn cd-btn--subtle"><br><br>
+
+        <input type="number" id="lname" name="Mobile" placeholder="your mobile no. "
+            class="cd-btn cd-btn--subtle"><br><br>
+
+        <button class="cd-btn cd-btn--accent" aria-controls="dialog-1" type="reset" value="Reset"
+            name="reset">Reset</button>
+
+        <button class="cd-btn cd-btn--primary" aria-controls="dialog-1" type="submit" value="Submit"
+            name="submit">Submit</button>
+
+        </div>
+        </div>
+
+    </form>
+    <Script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzwdz-VZlFXfJ5-U9c5qtDgkD5a3bSxSbt6rGWLKj0GNTJKU0DYABnHH73nNSVGFQCE/exec'
+        const form = document.forms['google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .catch(error => console.error('Error!', error.message))
+        })
+
+    </Script>
+</body>
+
+</html>
